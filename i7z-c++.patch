@@ -1,0 +1,17 @@
+--- i7z-0.26/GUI/GUI_i7z.cpp.orig	2010-10-04 07:34:19.000000000 +0200
++++ i7z-0.26/GUI/GUI_i7z.cpp	2011-05-31 21:49:08.494168264 +0200
+@@ -47,10 +47,12 @@
+ void Construct_Socket_Information_in_GUI(unsigned int *numCPUs) {
+     socket_0.max_cpu=0;
+     socket_0.socket_num=0;
+-    socket_0.processor_num={-1,-1,-1,-1,-1,-1,-1,-1};
++    for(unsigned i = 0; i < MAX_SK_PROCESSORS; i++)
++	socket_0.processor_num[i] = -1;
+     socket_1.max_cpu=0;
+     socket_1.socket_num=1;
+-    socket_1.processor_num={-1,-1,-1,-1,-1,-1,-1,-1};
++    for(unsigned i = 0; i < MAX_SK_PROCESSORS; i++)
++	socket_1.processor_num[i] = -1;
+ 
+     construct_CPU_Heirarchy_info(&chi);
+     construct_sibling_list(&chi);
