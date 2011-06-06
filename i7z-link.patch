@@ -1,0 +1,21 @@
+--- i7z-0.26/Makefile.orig	2010-10-04 07:34:19.000000000 +0200
++++ i7z-0.26/Makefile	2011-06-06 09:52:46.750087015 +0200
+@@ -28,7 +28,8 @@
+ 
+ CC       = gcc 
+ 
+-LDFLAGS  = -lncurses -lpthread
++LDFLAGS  =
++LIBS	 =-lncurses -lpthread
+ INCLUDEFLAGS = 
+ 
+ OBJS = helper_functions
+@@ -44,7 +45,7 @@
+ 	@echo "If the compilation complains about not finding ncurses.h, install ncurses (libncurses5-dev on ubuntu/debian)"
+ 
+ bin:
+-	$(CC) $(CFLAGS) $(LDFLAGS) $(INCLUDEFLAGS) $(SRC) -o $(BIN)
++	$(CC) $(CFLAGS) $(LDFLAGS) $(INCLUDEFLAGS) $(SRC) $(LIBS) -o $(BIN)
+ 
+ clean:
+ 	rm -f *.o $(BIN)
