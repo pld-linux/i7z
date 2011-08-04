@@ -2,7 +2,7 @@ Summary:	i3, i5 and i7 reporting tool for Linux
 Summary(pl.UTF-8):	Narzędzie informacyjne dla procesorów i3, i5 i i7 pod Linuksem
 Name:		i7z
 Version:	0.27
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/System
 #Source0Download: http://code.google.com/p/i7z/downloads/list
@@ -43,6 +43,7 @@ Oparte na Qt graficzne narzędzie informacyjne dla procesorów i3/i5/i7.
 %patch0 -p1
 
 %build
+%{__make} clean
 %{__make} \
 	CC="%{__cc}" \
 	CFLAGSANY="%{rpmcflags} %{rpmcppflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DBUILD_MAIN -Wall" \
@@ -55,6 +56,7 @@ qmake-qt4 \
 	QMAKE_CXX="%{__cxx}" \
 	QMAKE_CXXFLAGS_RELEASE="%{rpmcxxflags}" \
 	QMAKE_LFLAGS_RELEASE="%{rpmldflags}"
+%{__make} clean
 %{__make}
 
 %install
