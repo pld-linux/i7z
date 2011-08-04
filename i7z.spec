@@ -1,15 +1,14 @@
 Summary:	i3, i5 and i7 reporting tool for Linux
 Summary(pl.UTF-8):	Narzędzie informacyjne dla procesorów i3, i5 i i7 pod Linuksem
 Name:		i7z
-Version:	0.26
+Version:	0.27
 Release:	1
 License:	GPL v2
 Group:		Applications/System
 #Source0Download: http://code.google.com/p/i7z/downloads/list
 Source0:	http://i7z.googlecode.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	4f16f8ba2096e6156caab300e9e034e3
-Patch0:		%{name}-c++.patch
-Patch1:		%{name}-link.patch
+# Source0-md5:	85727aad6d5082b3448caba4a2c74506
+Patch0:		%{name}-link.patch
 URL:		http://code.google.com/p/i7z/
 BuildRequires:	ncurses-devel
 BuildRequires:	qt4-build
@@ -40,9 +39,8 @@ Qt-based graphical i3/i5/i7 CPU reporting tool.
 Oparte na Qt graficzne narzędzie informacyjne dla procesorów i3/i5/i7.
 
 %prep
-%setup -q
+%setup -q -n %{name}
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__make} \
@@ -50,7 +48,7 @@ Oparte na Qt graficzne narzędzie informacyjne dla procesorów i3/i5/i7.
 	CFLAGSANY="%{rpmcflags} %{rpmcppflags} -D_GNU_SOURCE -D_FILE_OFFSET_BITS=64 -DBUILD_MAIN -Wall" \
 	INCLUDEFLAGS=-I/usr/include/ncurses \
 	LDFLAGS="%{rpmldflags}" \
-	LIBS="-lncurses -ltinfo -lpthread"
+	LIBS="-lncurses -ltinfo -lpthread -lrt"
 
 cd GUI
 qmake-qt4 \
