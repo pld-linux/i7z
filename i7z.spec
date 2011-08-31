@@ -2,7 +2,7 @@ Summary:	i3, i5 and i7 reporting tool for Linux
 Summary(pl.UTF-8):	Narzędzie informacyjne dla procesorów i3, i5 i i7 pod Linuksem
 Name:		i7z
 Version:	0.27
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Applications/System
 #Source0Download: http://code.google.com/p/i7z/downloads/list
