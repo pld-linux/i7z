@@ -1,5 +1,5 @@
---- i7z-0.26/Makefile.orig	2010-10-04 07:34:19.000000000 +0200
-+++ i7z-0.26/Makefile	2011-06-06 09:52:46.750087015 +0200
+--- i7z-0.27.1/Makefile.orig	2011-12-28 03:39:11.000000000 +0100
++++ i7z-0.27.1/Makefile	2012-01-04 21:25:53.052486462 +0100
 @@ -28,7 +28,8 @@
  
  CC       = gcc 
@@ -13,9 +13,9 @@
 @@ -44,7 +45,7 @@
  	@echo "If the compilation complains about not finding ncurses.h, install ncurses (libncurses5-dev on ubuntu/debian)"
  
- bin:
--	$(CC) $(CFLAGS) $(LDFLAGS) $(INCLUDEFLAGS) $(SRC) -o $(BIN)
-+	$(CC) $(CFLAGS) $(LDFLAGS) $(INCLUDEFLAGS) $(SRC) $(LIBS) -o $(BIN)
+ bin: 
+-	$(CC) $(CFLAGS) $(INCLUDEFLAGS) $(SRC) $(LDFLAGS) -o $(BIN)
++	$(CC) $(CFLAGS) $(INCLUDEFLAGS) $(SRC) $(LDFLAGS) $(LIBS) -o $(BIN)
  
- clean:
- 	rm -f *.o $(BIN)
+ test_exist:
+ 	@test -f i7z && echo 'Succeeded, now run sudo ./i7z' || echo 'Compilation failed'

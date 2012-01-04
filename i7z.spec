@@ -1,13 +1,13 @@
 Summary:	i3, i5 and i7 reporting tool for Linux
 Summary(pl.UTF-8):	Narzędzie informacyjne dla procesorów i3, i5 i i7 pod Linuksem
 Name:		i7z
-Version:	0.27
-Release:	3
+Version:	0.27.1
+Release:	1
 License:	GPL v2
 Group:		Applications/System
 #Source0Download: http://code.google.com/p/i7z/downloads/list
 Source0:	http://i7z.googlecode.com/files/%{name}-%{version}.tar.gz
-# Source0-md5:	85727aad6d5082b3448caba4a2c74506
+# Source0-md5:	4408e0e39b195b8fe6383cadc971a862
 Patch0:		%{name}-link.patch
 URL:		http://code.google.com/p/i7z/
 BuildRequires:	ncurses-devel
@@ -39,7 +39,7 @@ Qt-based graphical i3/i5/i7 CPU reporting tool.
 Oparte na Qt graficzne narzędzie informacyjne dla procesorów i3/i5/i7.
 
 %prep
-%setup -q -n %{name}
+%setup -q
 %patch0 -p1
 
 %build
@@ -64,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_sbindir}
 
 install %{name} $RPM_BUILD_ROOT%{_sbindir}
-install GUI/GUI $RPM_BUILD_ROOT%{_sbindir}/%{name}_GUI
+install GUI/i7z_GUI $RPM_BUILD_ROOT%{_sbindir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
